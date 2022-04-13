@@ -44,7 +44,7 @@
             this.btnMultiply = new System.Windows.Forms.Button();
             this.btnDivide = new System.Windows.Forms.Button();
             this.lblCurrentFormula = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblCalculated = new System.Windows.Forms.Label();
             this.btnBackspace = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -204,18 +204,22 @@
             // lblCurrentFormula
             // 
             this.lblCurrentFormula.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.lblCurrentFormula.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCurrentFormula.Location = new System.Drawing.Point(12, 141);
             this.lblCurrentFormula.Name = "lblCurrentFormula";
             this.lblCurrentFormula.Size = new System.Drawing.Size(385, 55);
             this.lblCurrentFormula.TabIndex = 15;
+            this.lblCurrentFormula.Text = "0";
+            this.lblCurrentFormula.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // label1
+            // lblCalculated
             // 
-            this.label1.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.label1.Location = new System.Drawing.Point(12, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(382, 115);
-            this.label1.TabIndex = 16;
+            this.lblCalculated.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.lblCalculated.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCalculated.Location = new System.Drawing.Point(12, 9);
+            this.lblCalculated.Name = "lblCalculated";
+            this.lblCalculated.Size = new System.Drawing.Size(382, 115);
+            this.lblCalculated.TabIndex = 16;
             // 
             // btnBackspace
             // 
@@ -244,7 +248,7 @@
             this.ClientSize = new System.Drawing.Size(407, 515);
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.btnBackspace);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblCalculated);
             this.Controls.Add(this.lblCurrentFormula);
             this.Controls.Add(this.btnDivide);
             this.Controls.Add(this.btnMultiply);
@@ -287,7 +291,7 @@
         private System.Windows.Forms.Button btnMultiply;
         private System.Windows.Forms.Button btnDivide;
         private System.Windows.Forms.Label lblCurrentFormula;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblCalculated;
         private System.Windows.Forms.Button btnBackspace;
         private System.Windows.Forms.Button btnClear;
     }
