@@ -32,6 +32,8 @@ namespace Calculator
             this.btnEight.Click += BtnNumber_Click;
             this.btnNine.Click += BtnNumber_Click;
 
+            this.btnDecimal.Click += BtnNumber_Click;
+
             this.btnDivide.Click += BtnOperator_Click;
             this.btnMultiply.Click += BtnOperator_Click;
             this.btnSubtract.Click += BtnOperator_Click;
@@ -40,8 +42,14 @@ namespace Calculator
             this.btnBackspace.Click += BtnBackspace_Click;
 
             this.btnClear.Click += BtnClear_Click;
+            this.btnClearEntry.Click += BtnClearEntry_Click;
 
             this.btnCalculate.Click += BtnCalculate_Click;
+        }
+
+        private void BtnClearEntry_Click(object sender, EventArgs e)
+        {
+            this.lblCurrentFormula.Text = "0";
         }
 
         private void BtnCalculate_Click(object sender, EventArgs e)
@@ -49,20 +57,22 @@ namespace Calculator
             switch (operationPerformed)
             {
                 case "/":
-                    this.lblCalculated.Text = (resultValue / double.Parse(this.lblCurrentFormula.Text)).ToString();
+                    this.lblCurrentFormula.Text = (resultValue / double.Parse(this.lblCurrentFormula.Text)).ToString();
                     break;
                 case "*":
-                    this.lblCalculated.Text = (resultValue * double.Parse(this.lblCurrentFormula.Text)).ToString();
+                    this.lblCurrentFormula.Text = (resultValue * double.Parse(this.lblCurrentFormula.Text)).ToString();
                     break;
                 case "+":
-                    this.lblCalculated.Text = (resultValue + double.Parse(this.lblCurrentFormula.Text)).ToString();
+                    this.lblCurrentFormula.Text = (resultValue + double.Parse(this.lblCurrentFormula.Text)).ToString();
                     break;
                 case "-":
-                    this.lblCalculated.Text = (resultValue - double.Parse(this.lblCurrentFormula.Text)).ToString();
+                    this.lblCurrentFormula.Text = (resultValue - double.Parse(this.lblCurrentFormula.Text)).ToString();
                     break;
             }
-        }
 
+            resultValue = double.Parse(this.lblCurrentFormula.Text);
+            lblCalculated.Text = "";
+        }
         private void BtnNumber_Click(object sender, EventArgs e)
         {
             if (this.lblCurrentFormula.Text == "0" || isOperationPerformed)
@@ -73,13 +83,26 @@ namespace Calculator
             isOperationPerformed = false;
 
             Button numberButton = (Button)sender;
-            this.lblCurrentFormula.Text += numberButton.Text;
+            if (numberButton.Text == ".")
+            {
+                if (!this.lblCurrentFormula.Text.Contains("."))
+                {
+                    this.lblCurrentFormula.Text += numberButton.Text;
+                }
+            }
+            else
+            {
+                this.lblCurrentFormula.Text += numberButton.Text;
+            }
         }
 
         private void BtnClear_Click(object sender, EventArgs e)
         {
             this.lblCurrentFormula.Text = "0";
             this.lblCalculated.Text = "";
+
+            resultValue = 0;
+            operationPerformed = "";
         }
 
         private void BtnBackspace_Click(object sender, EventArgs e)
@@ -94,11 +117,23 @@ namespace Calculator
         {
             Button buttonOperator = (Button)sender;
 
-            operationPerformed = buttonOperator.Text;
-            resultValue = double.Parse(this.lblCurrentFormula.Text);
-            this.lblCalculated.Text = resultValue + " " + operationPerformed;
+            if (resultValue != 0)
+            {
+                //btnCalculate.PerformClick();
 
-            isOperationPerformed = true;
+                operationPerformed = buttonOperator.Text;
+                this.lblCalculated.Text = resultValue + " " + operationPerformed;
+
+                isOperationPerformed = true;
+            }
+            else
+            {
+                operationPerformed = buttonOperator.Text;
+                resultValue = double.Parse(this.lblCurrentFormula.Text);
+                this.lblCalculated.Text = resultValue + " " + operationPerformed;
+
+                isOperationPerformed = true;
+            }
         }
     }
 }

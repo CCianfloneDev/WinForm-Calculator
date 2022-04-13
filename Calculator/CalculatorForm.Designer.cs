@@ -47,6 +47,8 @@
             this.lblCalculated = new System.Windows.Forms.Label();
             this.btnBackspace = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
+            this.btnDecimal = new System.Windows.Forms.Button();
+            this.btnClearEntry = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnCalculate
@@ -240,12 +242,34 @@
             this.btnClear.Text = "Clear";
             this.btnClear.UseVisualStyleBackColor = true;
             // 
+            // btnDecimal
+            // 
+            this.btnDecimal.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDecimal.Location = new System.Drawing.Point(174, 402);
+            this.btnDecimal.Name = "btnDecimal";
+            this.btnDecimal.Size = new System.Drawing.Size(69, 42);
+            this.btnDecimal.TabIndex = 19;
+            this.btnDecimal.Text = ".";
+            this.btnDecimal.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnDecimal.UseVisualStyleBackColor = true;
+            // 
+            // btnClearEntry
+            // 
+            this.btnClearEntry.Location = new System.Drawing.Point(93, 210);
+            this.btnClearEntry.Name = "btnClearEntry";
+            this.btnClearEntry.Size = new System.Drawing.Size(69, 26);
+            this.btnClearEntry.TabIndex = 20;
+            this.btnClearEntry.Text = "Clear Entry";
+            this.btnClearEntry.UseVisualStyleBackColor = true;
+            // 
             // CalculatorForm
             // 
             this.AcceptButton = this.btnCalculate;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(407, 515);
+            this.Controls.Add(this.btnClearEntry);
+            this.Controls.Add(this.btnDecimal);
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.btnBackspace);
             this.Controls.Add(this.lblCalculated);
@@ -294,6 +318,8 @@
         private System.Windows.Forms.Label lblCalculated;
         private System.Windows.Forms.Button btnBackspace;
         private System.Windows.Forms.Button btnClear;
+        private System.Windows.Forms.Button btnDecimal;
+        private System.Windows.Forms.Button btnClearEntry;
     }
 }
 
